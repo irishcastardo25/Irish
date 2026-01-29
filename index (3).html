@@ -1,0 +1,574 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Irish Eve Faye | Personal Space</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Quicksand:wght@400;600&display=swap');
+
+        :root {
+            --pastel-pink: #ffdae9;
+            --hot-pink: #fb6f92;
+            --cloud-white: rgba(255, 255, 255, 0.9);
+        }
+
+        body {
+            font-family: 'Quicksand', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, #ffc2d1, #ffe5ec);
+            color: #5e548e;
+            overflow-x: hidden;
+        }
+
+        /* --- CLOUD BACKGROUND --- */
+        .sky-container {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .cloud {
+            position: absolute;
+            background: white;
+            width: 120px;
+            height: 40px;
+            border-radius: 50px;
+            opacity: 0.7;
+            animation: float-clouds linear infinite;
+        }
+
+        .cloud::after, .cloud::before {
+            content: '';
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+        }
+
+        .cloud::after { width: 50px; height: 50px; top: -25px; left: 15px; }
+        .cloud::before { width: 70px; height: 70px; top: -35px; left: 40px; }
+
+        @keyframes float-clouds {
+            from { transform: translateX(-200px); }
+            to { transform: translateX(110vw); }
+        }
+
+        /* --- FALLING FLOWERS --- */
+        .flower-layer {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .falling-flower {
+            position: absolute;
+            top: -20px;
+            animation: fall linear infinite;
+        }
+
+        @keyframes fall {
+            to { transform: translateY(110vh) rotate(360deg); }
+        }
+
+        /* --- CONTENT DESIGN --- */
+        .hero {
+            height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .hero h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 4rem;
+            color: white;
+            text-shadow: 4px 4px var(--hot-pink);
+            margin: 0;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            background: var(--hot-pink);
+            color: white;
+            padding: 5px 20px;
+            border-radius: 20px;
+            margin-top: 10px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: -50px auto 50px auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .scrapbook-card {
+            background: var(--cloud-white);
+            padding: 30px;
+            border-radius: 0 0 20px 20px;
+            border-top: 10px solid var(--hot-pink);
+            box-shadow: 10px 10px 0px rgba(251, 111, 146, 0.2);
+            transform: rotate(-1deg);
+            transition: 0.3s;
+        }
+
+        .scrapbook-card:nth-child(even) {
+            transform: rotate(1deg);
+        }
+
+        .scrapbook-card:hover {
+            transform: rotate(0deg) scale(1.02);
+        }
+
+        h2 {
+            font-family: 'Dancing Script', cursive;
+            color: var(--hot-pink);
+            font-size: 2rem;
+        }
+
+        .contact-bar {
+            grid-column: 1 / -1;
+            background: #fff;
+            padding: 20px;
+            border-radius: 50px;
+            text-align: center;
+            border: 2px dashed var(--hot-pink);
+        }
+
+        .contact-bar a {
+            color: var(--hot-pink);
+            font-weight: bold;
+            text-decoration: none;
+            margin: 0 15px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px;
+            font-size: 0.9rem;
+            color: #fb6f92;
+        }
+
+        /* Simple helper classes for positioning animations */
+        .speed-1 { animation-duration: 20s; top: 10%; }
+        .speed-2 { animation-duration: 35s; top: 30%; }
+        .speed-3 { animation-duration: 25s; top: 60%; }
+    </style>
+</head>
+<body>
+
+    <div class="sky-container">
+        <div class="cloud speed-1"></div>
+        <div class="cloud speed-2" style="left: -150px; top: 40%;"></div>
+        <div class="cloud speed-3"></div>
+    </div>
+
+    <div class="flower-layer" id="flower-box"></div>
+
+    <section class="hero">
+        <h1>Irish Eve Faye</h1>
+        <p>STEM 12 | Bernhard Riemann </p>
+    </section>
+
+    <div class="container">
+        <div class="scrapbook-card">
+            <h2>🌸 About Me</h2>
+            <p>I am <b>Irish Eve Faye D. Castardo</b>, an 18-year-old dreamer and a devoted <b>Seventh Day Adventist</b>.</p>
+            <p>Currently, I'm navigating my Grade 12 journey at <b>SABNAHIS</b>. Being the only daughter with <b>3 brothers</b> has made me both strong and cherished!</p>
+        </div>
+
+        <div class="scrapbook-card">
+            <h2>🎵 My Favorites</h2>
+            <p>Life is better with a soundtrack and a passport! I spend my time:</p>
+            <ul>
+                <li>🎤 <b>Singing:</b> Expressing my heart through song.</li>
+                <li>🎧 <b>Music:</b> Always have my headphones on!</li>
+                <li>🗺️ <b>Traveling:</b> Seeking new adventures and memories.</li>
+                <li>💤 <b>Sleeper: </b> Always taking rest. </b>
+            </ul>
+        </div>
+
+
+
+        <div class="contact-bar">
+            <span>📞 09705959014</span>
+            <span>📧 <a href="mailto:irishcast3@gmail.com">irishcast3@gmail.com</a></span>
+        </div>
+    </div>
+
+    <footer>
+    </footer>
+
+    <script>
+        // Script to create randomly falling flowers
+        const flowerBox = document.getElementById('flower-box');
+        const flowerIcons = ['🌸', '💮', '🌺', '🌷'];
+
+        function createFlower() {
+            const flower = document.createElement('div');
+            flower.className = 'falling-flower';
+            flower.innerHTML = flowerIcons[Math.floor(Math.random() * flowerIcons.length)];
+            flower.style.left = Math.random() * 100 + 'vw';
+            flower.style.fontSize = (Math.random() * 20 + 10) + 'px';
+            flower.style.animationDuration = (Math.random() * 5 + 5) + 's';
+            flower.style.opacity = Math.random();
+            
+            flowerBox.appendChild(flower);
+
+            setTimeout(() => {
+                flower.remove();
+            }, 10000);
+        }
+
+        setInterval(createFlower, 300);
+    </script>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Quicksand:wght@400;600&display=swap');
+
+        :root {
+            --pastel-pink: #ffdae9;
+            --hot-pink: #fb6f92;
+            --cloud-white: rgba(255, 255, 255, 0.95);
+        }
+
+        body {
+            font-family: 'Quicksand', sans-serif;
+            margin: 0;
+            background: linear-gradient(to bottom, #ffc2d1, #ffe5ec);
+            color: #5e548e;
+            overflow-x: hidden;
+        }
+
+        /* --- BACKGROUND ANIMATIONS --- */
+        .sky { position: fixed; width: 100%; height: 100%; z-index: -1; }
+        .cloud {
+            position: absolute; background: white; width: 100px; height: 35px;
+            border-radius: 50px; opacity: 0.6; animation: float 25s linear infinite;
+        }
+        .cloud::after { content: ''; position: absolute; background: white; width: 50px; height: 50px; border-radius: 50%; top: -20px; left: 20px; }
+        @keyframes float { from { left: -150px; } to { left: 100%; } }
+
+        /* --- HERO SECTION --- */
+        header {
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        header h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 4.5rem;
+            color: white;
+            text-shadow: 3px 3px var(--hot-pink);
+            margin: 0;
+        }
+
+        /* --- GALLERY SECTION --- */
+        .gallery-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .polaroid {
+            background: white;
+            padding: 15px 15px 40px 15px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            transition: 0.3s;
+            border-radius: 2px;
+        }
+
+        .polaroid img {
+            width: 250px;
+            height: 250px;
+            object-fit: cover;
+            border: 1px solid #eee;
+        }
+
+        .polaroid span {
+            display: block;
+            text-align: center;
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.5rem;
+            margin-top: 15px;
+            color: #444;
+        }
+
+        /* Scatter effect */
+        .polaroid:nth-child(odd) { transform: rotate(-3deg); }
+        .polaroid:nth-child(even) { transform: rotate(3deg); }
+        .polaroid:hover { transform: rotate(0deg) scale(1.1); z-index: 10; cursor: pointer; }
+
+        /* --- INFO CARDS --- */
+        .info-section {
+            max-width: 800px;
+            margin: 50px auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .card {
+            background: var(--cloud-white);
+            padding: 25px;
+            border-radius: 20px;
+            box-shadow: 5px 5px 15px rgba(0,0,0,0.05);
+            border-bottom: 5px solid var(--hot-pink);
+        }
+
+        .contact-footer {
+            background: var(--hot-pink);
+            color: white;
+            text-align: center;
+            padding: 30px;
+            margin-top: 50px;
+            border-radius: 50px 50px 0 0;
+        }
+
+        .contact-footer a { color: white; font-weight: bold; }
+
+    </style>
+</head>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Irish Eve Faye | Personal Space</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Quicksand:wght@400;600&display=swap');
+
+        :root {
+            --pastel-pink: #ffdae9;
+            --hot-pink: #fb6f92;
+            --cloud-white: rgba(255, 255, 255, 0.95);
+        }
+
+        body {
+            font-family: 'Quicksand', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, #ffc2d1, #ffe5ec);
+            color: #5e548e;
+            overflow-x: hidden;
+        }
+
+        /* --- BACKGROUND ANIMATIONS --- */
+        .sky-container {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .cloud {
+            position: absolute;
+            background: white;
+            width: 120px;
+            height: 40px;
+            border-radius: 50px;
+            opacity: 0.7;
+            animation: float-clouds linear infinite;
+        }
+
+        .cloud::after, .cloud::before {
+            content: '';
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+        }
+
+        .cloud::after { width: 50px; height: 50px; top: -25px; left: 15px; }
+        .cloud::before { width: 70px; height: 70px; top: -35px; left: 40px; }
+
+        @keyframes float-clouds {
+            from { transform: translateX(-200px); }
+            to { transform: translateX(110vw); }
+        }
+
+        /* --- FALLING FLOWERS --- */
+        .flower-layer {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none;
+            z-index: 5;
+        }
+
+        .falling-flower {
+            position: absolute;
+            top: -20px;
+            animation: fall linear infinite;
+        }
+
+        @keyframes fall {
+            to { transform: translateY(110vh) rotate(360deg); }
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            height: 40vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .hero h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 4rem;
+            color: white;
+            text-shadow: 4px 4px var(--hot-pink);
+            margin: 0;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            background: var(--hot-pink);
+            color: white;
+            padding: 5px 20px;
+            border-radius: 20px;
+            margin-top: 10px;
+        }
+
+        /* --- GALLERY --- */
+        .gallery-title {
+            text-align: center; 
+            font-family: 'Dancing Script', cursive; 
+            font-size: 3rem; 
+            color: var(--hot-pink);
+            margin-top: 20px;
+        }
+
+        .gallery-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .polaroid {
+            background: white;
+            padding: 15px 15px 40px 15px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            transition: 0.3s;
+            border-radius: 2px;
+        }
+
+        .polaroid img {
+            width: 250px;
+            height: 250px;
+            object-fit: cover;
+            border: 1px solid #eee;
+        }
+
+        .polaroid span {
+            display: block;
+            text-align: center;
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.5rem;
+            margin-top: 15px;
+            color: #444;
+        }
+
+        .polaroid:nth-child(odd) { transform: rotate(-3deg); }
+        .polaroid:nth-child(even) { transform: rotate(3deg); }
+        .polaroid:hover { transform: rotate(0deg) scale(1.05); z-index: 10; }
+
+        /* --- INFO CARDS --- */
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .scrapbook-card {
+            background: var(--cloud-white);
+            padding: 30px;
+            border-radius: 20px;
+            border-top: 10px solid var(--hot-pink);
+            box-shadow: 10px 10px 0px rgba(251, 111, 146, 0.1);
+        }
+
+        .contact-bar {
+            grid-column: 1 / -1;
+            background: #fff;
+            padding: 20px;
+            border-radius: 50px;
+            text-align: center;
+            border: 2px dashed var(--hot-pink);
+        }
+
+        .contact-bar a { color: var(--hot-pink); text-decoration: none; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+    <div class="sky-container">
+        <div class="cloud speed-1"></div>
+        <div class="cloud speed-2" style="left: -150px; top: 40%;"></div>
+        <div class="cloud speed-3"></div>
+    </div>
+
+    <div class="flower-layer" id="flower-box"></div>
+
+    <h2 class="gallery-title">My Memories</h2>
+    
+    <div class="gallery-container">
+        <div class="polaroid">
+            <img src="https://i.ibb.co/s9fnxQZ6/1769676905987.png" alt="Irish Eve Faye">
+            <span>With my Family🧑‍🤝‍🧑👭👬</span>
+        </div>
+
+        <div class="polaroid">
+            <img src="https://i.ibb.co/jZJYK11S/received-1732377297666676.jpg" alt="Choir/Singing">
+            <span>SABNAHIS Days📚</span>
+        </div>
+
+        <div class="polaroid">
+            <img src="https://i.ibb.co/FLh3hWSQ/Messenger-creation-9-C8651-EB-3887-4398-94-EF-4-F499-DCED59-D.jpg" alt="SABNAHIS">
+            <span>Traveling</span>
+        </div>
+
+        <div class="polaroid">
+            <img src="https://i.ibb.co/gMm0kcQC/received-2671479856346371.jpg" alt="Family">
+            <span>Church Choir🎶🎶</span>
+        </div>
+    </div>
+
+</body>
+</html>
